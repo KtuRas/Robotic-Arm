@@ -2,6 +2,8 @@ var Cylon = require('cylon');
 
 var portOpened = true;
 
+
+//cylong js framework' u
 Cylon.robot({
   connections: {
     leapmotion: { adaptor: 'leapmotion' },
@@ -28,6 +30,7 @@ Cylon.robot({
     var s_data = false;
     var samples = 20;
 
+    //leap motion' dan her el verisi geldiğinde değeri al
     my.leapmotion.on('hand', function(hand) {
       //console.log(hand["ringFinger"]);
      //console.log(hand.palmPosition[0] + " " + hand.palmPosition[1]);
@@ -53,6 +56,8 @@ Cylon.robot({
 
     my.leapmotion.on('frame', function(frame){
 
+      //kıskaç hareketi için başparmak ve işaret parmağı arasındaki
+      //mesafeyi hesapla
       if(frame.pointables.length > 1)
       {
         var f1 = frame.pointables[0];
@@ -68,9 +73,8 @@ Cylon.robot({
         s_data = true;
       }
     });
-
-    //every((1).second(), my.led.toggle);
     
+    //her 30 ms' de bir servo değerlerini güncelle
     every((30), function() {
       angle1 = (angle1 + 160) / 2;
       if(angle1 < 10) angle1 = 10;
@@ -103,23 +107,16 @@ Cylon.robot({
       if(angle3 > lastAngle3) lastAngle3++;
       if(angle3 < lastAngle3) lastAngle3--;
 
-      /*
-      my.servo1.angle(160 - Math.floor(lastAngle1));
-      my.servo2.angle(160 - Math.floor(lastAngle2));
-      my.servo3.angle(Math.floor(lastAngle3));*/
+      //servoların sırası leapmotion' dan alınan verilere göre değiştirilebilir
+      //servo bağlantıları yapılmadan önce konsoldan açıların sırası kontrol edilmelidir.
+      my.servo1.angle(lastAngle3);
+      my.servo2.angle(lastAngle2);
+      my.servo3.angle(lastAngle1);
+      my.servo4.angle(10);
+      my.servo5.angle(fingerDistance);
+      
 
-      if(portOpened)
-      {
-        // port.write("#|" + lastAngle1 + "|" + lastAngle2 + "|" + lastAngle3 + "|" + "10|" + fingerDistance  + "\n\r");
-
-        my.servo1.angle(lastAngle3);
-        my.servo2.angle(lastAngle2);
-        my.servo3.angle(90);
-        my.servo4.angle(10);
-        my.servo5.angle(fingerDistance);
-      }
-
-
+      //açıları konsola yazdır
       console.log("#|" + lastAngle1 + "|" + lastAngle2 + "|" + lastAngle3 + "|" + "10|" + fingerDistance  + "\n\r");
 
       s_data = false;
