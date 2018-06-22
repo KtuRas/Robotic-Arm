@@ -36,6 +36,8 @@
     aralarında sorunsuz haberleştiğinden emin olmalısınız
 </p>
 
-<img src="/images/arm.jpg" alt="">
+<center>
+    <img src="/images/arm.jpg" alt="" height="300" width="300">
+</center>
 
 ...
