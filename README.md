@@ -1,5 +1,5 @@
 
-<h2>Leap Motion Kontrollü Robotik Kol</h2>
+<h1>Leap Motion Kontrollü Robotik Kol</h1>
 
 <p>Bu projede 5 Eksen robot kolun kontrolü Leap Motion sensör kullanılarak kablosuz olarak gerçekleştirilmiştir.</p>
 <p>Projede amaç el hareketlerinin kumandaya göre daha hassas olarak roota aktarılmsadır.</p>
@@ -23,7 +23,19 @@
     <li>xBee (2 Adet)</li>
     <li>xBee Usb Adaptör</li>
     <li>5 Eksen Robot Kol</li>
+    <li>5V 50A SMPS</li>
 </ul>
 
+<p>Projede Xbee Cylon.js ile Arduino' da yüklü olan firmata' yı kablosuz olarak haberleştirmek
+     için kullanılmıştır. Xbee Explorer' ın bağlı olduğu seri port' u "cylon_leap.js" isimli dosyadaki 
+    port name değişkenine yazmanız haberleşme için yeterli<b>(*)</b> olacaktır.
+</p>
+
+<p> <b>(*)</b> Projede xbee kullanımı opsiyoneldir. Arduino' yu kablo ile doğrudan biligsayarınıza bağlarsanız 
+    yazılım sorunsuz çalışacaktır. Xbee kullanacaksanız da ayarlarının doğru yağıldığından ve iki Xbee' nin 
+    aralarında sorunsuz haberleştiğinden emin olmalısınız
+</p>
+
+<img src="/images/arm.jpg" alt="">
 
 ...

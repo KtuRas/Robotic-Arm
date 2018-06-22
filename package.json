@@ -1,0 +1,24 @@
+{
+  "name": "roboticarm",
+  "version": "1.0.0",
+  "description": "Control a robotic arm with leap motion sensor",
+  "main": "cylon_leap.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "leapmotion",
+    "nodejs",
+    "robot",
+    "arm",
+    "cylon"
+  ],
+  "author": "ktueek",
+  "license": "ISC",
+  "dependencies": {
+    "cylon": "^1.3.0",
+    "cylon-leapmotion": "^0.21.0",
+    "leapjs": "^0.6.4"
+  }
+}
